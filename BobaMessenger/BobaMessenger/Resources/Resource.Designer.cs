@@ -92,11 +92,32 @@ namespace BobaMessenger
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f040001
-			public const int ApplicationName = 2130968577;
+			// aapt resource value: 0x7f040008
+			public const int ApplicationName = 2130968584;
+			
+			// aapt resource value: 0x7f040007
+			public const int Hello = 2130968583;
+			
+			// aapt resource value: 0x7f040002
+			public const int default_web_client_id = 2130968578;
+			
+			// aapt resource value: 0x7f040003
+			public const int firebase_database_url = 2130968579;
 			
 			// aapt resource value: 0x7f040000
-			public const int Hello = 2130968576;
+			public const int gcm_defaultSenderId = 2130968576;
+			
+			// aapt resource value: 0x7f040004
+			public const int google_api_key = 2130968580;
+			
+			// aapt resource value: 0x7f040001
+			public const int google_app_id = 2130968577;
+			
+			// aapt resource value: 0x7f040005
+			public const int google_crash_reporting_api_key = 2130968581;
+			
+			// aapt resource value: 0x7f040006
+			public const int google_storage_bucket = 2130968582;
 			
 			static String()
 			{

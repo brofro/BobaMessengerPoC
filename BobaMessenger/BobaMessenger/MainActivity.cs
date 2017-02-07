@@ -5,6 +5,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Android.Gms.Common;
 
 namespace BobaMessenger
 {
@@ -15,6 +16,7 @@ namespace BobaMessenger
 
         protected override void OnCreate(Bundle bundle)
         {
+            //https://developer.xamarin.com/guides/android/application_fundamentals/notifications/remote-notifications-with-fcm/
             base.OnCreate(bundle);
 
             // Set our view from the "main" layout resource
