@@ -1,11 +1,13 @@
 ﻿using System;
 using Android.App;
 using Android.Content;
-using Android.Runtime;
-using Android.Views;
 using Android.Widget;
 using Android.OS;
-using Android.Gms.Common;
+using BobaMessenger.Utility.PlayServices;
+using BobaMessenger.Models.PlayServices.Enum;
+using Android.Util;
+using BobaMessenger.Services.FirebaseService;
+using Firebase.Iid;
 
 namespace BobaMessenger
 {
@@ -26,7 +28,33 @@ namespace BobaMessenger
             // and attach an event to it
             Button button = FindViewById<Button>(Resource.Id.MyButton);
 
-            button.Click += delegate { button.Text = string.Format("{0} clicks!", count++); };
+            if (Intent.Extras != null)
+            {
+                foreach (var key in Intent.Extras.KeySet())
+                {
+                    var value = Intent.Extras.GetString(key);
+                    Log.Debug("MainActivity", "Key: {0} Value: {1}", key, value);
+                }
+            }
+
+            var playServicesHelper = new PlayServicesHelper(this);
+
+            switch (playServicesHelper.IsPlayServicesAvailable())
+            {
+                case PlayServiceStatus.Available:
+                    break;
+                case PlayServiceStatus.Unavailable:
+                    //User Resolvable
+                    break;
+                case PlayServiceStatus.Shutdown:
+                    Finish();
+                    break;
+                default:
+                    throw new Exception("PlayServiceStatus was unknown");                
+            }
+
+
+            button.Click += delegate { button.Text = FirebaseInstanceId.Instance.Token; };
         }
     }
 }
